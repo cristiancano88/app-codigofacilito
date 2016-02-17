@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="MyfirstApp">
+    <head>
+        <title>Hola Controller</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+        <script src="js/controller.js" type="text/javascript"></script>
+    </head>
+    <body ng-controller="filtersController">
+        {{mi_html}} <br>
+        {{mi_html | removeHtml}} <br>
+        {{mi_htmlJson | json}}} <br>
+        <p>
+            {{costo | currency:'€'}}
+        </p>
+    </body>
+</html>
