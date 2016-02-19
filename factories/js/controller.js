@@ -11,6 +11,7 @@ angular.module('ToDoList', ["LocalStorageModule"])
             
             toDoService.add = function(newActv) {
                 toDoService.activities.push(newActv);
+                toDoService.updateLocalStorage();
             };
             
             toDoService.updateLocalStorage = function() {
@@ -23,15 +24,15 @@ angular.module('ToDoList', ["LocalStorageModule"])
             toDoService.getAll = function() {
                 return toDoService.activities;
             };
-            toDoService.removeItem = function(){
-                toDoService.activities = toDoService.activities.filter(function(){
-                    return activiti !== item;
+            toDoService.removeItem = function(item){
+                toDoService.activities = toDoService.activities.filter(function(activity){
+                    return activity !== item;
                 });
                 toDoService.updateLocalStorage();
                 return toDoService.getAll();
             };
             
-            return toDoService();
+            return toDoService;
             
         })
         .controller('ToDoController', function ($scope, ToDoService) {
@@ -39,7 +40,7 @@ angular.module('ToDoList', ["LocalStorageModule"])
             $scope.todo = ToDoService.getAll();
             
             $scope.addActv = function() {
-                ToDoService.add(newActv);
+                ToDoService.add($scope.newActv);
                 $scope.newActv = {};
             };
             
@@ -48,7 +49,7 @@ angular.module('ToDoList', ["LocalStorageModule"])
             };
             
             $scope.clean = function() {
-                ToDoService.clean();
+                $scope.todo = ToDoService.clean();
             };
 
         });
