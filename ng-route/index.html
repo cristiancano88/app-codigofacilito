@@ -23,18 +23,16 @@
         </style>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.5.0/angular-route.min.js"></script>
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script src="js/app.js" type="text/javascript"></script>
         <script src="js/controller.js" type="text/javascript"></script>
+        <script src="js/directives.js" type="text/javascript"></script>
     </head>
-    <body ng-controller="AppCtrl">
-    <input type="text" my-autocomplete="repos" placeholder="Buscar repositorio">
-        <ul class="no-list" ng-cloak>
-            <li ng-repeat="repo in posts" ng-hide="main_repo && main_repo != repo.name">
-                <!-- <img ng-src="{{repo.owner.avatar_url}}" alt=""> -->
-                <div class="circular" back-img="{{repo.owner.avatar_url}}"></div>
-                <h1 class="inline-block">{{repo.name}}</h1>
-            </li>
-        </ul>
+    <body>
+        <div ng-view>
+            
+        </div>
     </body>
 </html>
